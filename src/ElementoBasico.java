@@ -1,13 +1,10 @@
-
-import java.awt.Color;
 import java.awt.Image;
 import java.awt.Insets;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public abstract class ElementoBasico extends JButton{
+public abstract class ElementoBasico extends JButton {
     private Tabuleiro tabuleiro;
     private String id;
     private ImageIcon imagem;
@@ -39,7 +36,8 @@ public abstract class ElementoBasico extends JButton{
     }
     public void setImage(ImageIcon imagem){
         this.imagem = imagem;
-        this.setIcon(imagem); 
+        //this.setIcon(imagem); 
+        this.setIcon(resize(this.imagem, 50, 40));
     }
 
     public String getId() {
@@ -89,5 +87,7 @@ public abstract class ElementoBasico extends JButton{
         return new ImageIcon(src.getImage().getScaledInstance(destWidth,
                 destHeight, Image.SCALE_SMOOTH));
     }
+
+
 }
 

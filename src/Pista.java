@@ -20,7 +20,7 @@ public class Pista extends ElementoBasico{
            setImage(Tabuleiro.createImageIcon("hint.jpg"));
         }else{
             fechada = true;
-            setImage(Tabuleiro.createImageIcon("fundoPista.jpg"));
+            setImage(Tabuleiro.createImageIcon("hintFundo.jpg"));
         }
     }    
 }
