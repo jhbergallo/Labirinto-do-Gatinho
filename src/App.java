@@ -34,8 +34,9 @@ public class App extends JFrame implements ActionListener{
         
         JPanel painelGeral = new JPanel();
         painelGeral.setLayout(new BoxLayout(painelGeral, BoxLayout.PAGE_AXIS));
-        painelGeral.add(tabuleiro);
         painelGeral.add(botoesDirecao);
+        painelGeral.add(tabuleiro);
+
         
         // Insere os personagens no tabuleiro
         tabuleiro.loadLevel(1);
@@ -58,6 +59,8 @@ public class App extends JFrame implements ActionListener{
         this.setSize(1100,1100);
         this.setTitle("Jogo Demo");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setResizable(false);
+        this.pack();
         this.setVisible(true);
         tabuleiro.atualizaVisualizacao();
     }

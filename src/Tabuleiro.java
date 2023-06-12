@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class Tabuleiro extends JPanel {
@@ -29,17 +31,32 @@ public class Tabuleiro extends JPanel {
         }
     }
 
+    private static final int Altura = 48;
+    private static final int Largura = 44;
+    private static Map<String, ImageIcon> proxi = new HashMap<>();
     public static ImageIcon createImageIcon(String path) {
+        if (proxi.containsKey(path)) {
+            return proxi.get(path);
+        }
+
         java.net.URL imgURL = App.class.getResource("imagens/"+path);
-        
         if (imgURL != null) {
-            return new ImageIcon(imgURL);
+            ImageIcon aux = new ImageIcon(imgURL);
+            aux = Tabuleiro.resize(aux, Altura, Largura);
+            proxi.put(path,aux);
+            return aux;
         } else {
             System.err.println("Couldn't find file: " + path);
             System.exit(0);
             return null;
         }
     }
+
+    public static ImageIcon resize(ImageIcon src, int destWidth,
+    int destHeight) {
+        return new ImageIcon(src.getImage().getScaledInstance(destWidth,
+            destHeight, Image.SCALE_SMOOTH));
+}
 
     public static int getMaxlin() {
         return MAXLIN;

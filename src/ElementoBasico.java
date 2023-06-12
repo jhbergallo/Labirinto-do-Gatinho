@@ -1,6 +1,8 @@
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.Insets;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -19,9 +21,12 @@ public abstract class ElementoBasico extends JButton {
         this.tabuleiro = tabuleiro;
 
         this.imagem = Tabuleiro.createImageIcon(iconPath); 
-        this.setIcon( resize(this.imagem, 50, 40) ); 
-        //this.setBorder(BorderFactory.createBevelBorder(0,Color.RED, Color.BLACK ));
+        this.setIcon( this.imagem );
+        //this.setIcon( resize(this.imagem, 50, 40) ); 
+        this.setBorder(BorderFactory.createBevelBorder(0,Color.RED, Color.BLACK ));
         this.setMargin(new Insets(0,0,0,0));
+        this.addActionListener( e -> System.out.println(this.toString()) );
+
     }
 
     public ElementoBasico(String id,int linInicial,int colInicial,Tabuleiro tabuleiro){
@@ -36,8 +41,7 @@ public abstract class ElementoBasico extends JButton {
     }
     public void setImage(ImageIcon imagem){
         this.imagem = imagem;
-        //this.setIcon(imagem); 
-        this.setIcon(resize(this.imagem, 50, 40));
+        this.setIcon(imagem); 
     }
 
     public String getId() {
@@ -82,12 +86,12 @@ public abstract class ElementoBasico extends JButton {
 
     public abstract void acao(ElementoBasico outro);
 
-    public static ImageIcon resize(ImageIcon src, int destWidth,
-            int destHeight) {
-        return new ImageIcon(src.getImage().getScaledInstance(destWidth,
-                destHeight, Image.SCALE_SMOOTH));
+    @Override
+    public String toString() {
+        return this.getClass() +" [id=" + id + ", lin=" + lin + ", col=" + col + "]";
     }
 
+    
 
 }
 
