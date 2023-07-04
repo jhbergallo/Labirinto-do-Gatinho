@@ -1,5 +1,3 @@
-
-
 public class Personagem extends ElementoBasico {
     private ElementoBasico anterior;
 
@@ -83,6 +81,4 @@ public class Personagem extends ElementoBasico {
     public void acao(ElementoBasico outro) {
         throw new UnsupportedOperationException("Unimplemented method 'acao'");
     }
-
-   
 }
