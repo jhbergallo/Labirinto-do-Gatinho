@@ -29,6 +29,7 @@ public class App extends JFrame implements ActionListener{
     "\ncom a receita, mas estava todo em uma linguagem estranha." +
     "\nAgora o gatinho vai precisar da sua ajuda para poder continuar" +
     "\na jornada.";
+    
 
     public App(){
         super();
